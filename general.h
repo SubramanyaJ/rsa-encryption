@@ -15,3 +15,7 @@ bool getprimes(int *p, int *q){
     }
     return false;
 }
+
+void clear(){
+    while ( getchar() != '\n' );
+}
