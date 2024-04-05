@@ -72,6 +72,8 @@ int main(){
         fclose(outtxt);
 
         printf("Encryption complete\n");
+        printf("Enter e to exit ");
+        char vi; vi = getchar();
         return 0;
     }
     else if(d1 == 'd'){
@@ -100,7 +102,9 @@ int main(){
             printf("%c", optmodulus(numbers[i], d, n));
         }
 
-        printf("Decryption complete\n");
+        printf("\nDecryption complete\n");
+        printf("Enter e to exit ");
+        char vi; vi = getchar();
         return 0;
     }
     else{
