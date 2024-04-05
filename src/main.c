@@ -73,6 +73,7 @@ int main(){
 
         printf("Encryption complete\n");
         printf("Enter e to exit ");
+	clear();
         char vi; vi = getchar();
         return 0;
     }
@@ -93,17 +94,14 @@ int main(){
             numbers[count++] = num;
         }
         fclose(file);
-/*
-        for (int i = 0; i < count; i++){
-            printf("%d ", numbers[i]);
-        }   printf("\n");
-*/
+
         for(int i = 0; i < count; i++){
             printf("%c", optmodulus(numbers[i], d, n));
         }
 
         printf("\nDecryption complete\n");
         printf("Enter e to exit ");
+	clear();
         char vi; vi = getchar();
         return 0;
     }
