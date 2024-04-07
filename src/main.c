@@ -3,7 +3,8 @@
 #include "general.h"
 
 int main(){
-
+    int fsize;
+    filesize(&fsize);
     int n, e, d;
 
     char d1, d2;
@@ -45,7 +46,7 @@ int main(){
         
         //Obtaining text from input file
         int index = 0;
-        int inp_coded[20000];
+        int inp_coded[fsize];
         FILE *inptxt;
         char c;
         inptxt = fopen("message.txt", "r");
@@ -53,7 +54,7 @@ int main(){
             printf("Error opening input file\n");
             return -1;
         }
-        while ((c = fgetc(inptxt)) != EOF && index < 20000) {
+        while ((c = fgetc(inptxt)) != EOF && index < fsize) {
             inp_coded[index] = optmodulus(c, e, n);
             index++;
         }
@@ -82,7 +83,7 @@ int main(){
         scanf("(%i, %i)", &d, &n);  
         
             FILE *file;
-        int numbers[20000];
+        int numbers[fsize];
         int num, count = 0;
 
         file = fopen("output.txt", "r");
@@ -90,7 +91,7 @@ int main(){
             printf("Error opening output file\n");
             return -1;
         }
-        while(fscanf(file, "%d", &num) != EOF && count < 20000){
+        while(fscanf(file, "%d", &num) != EOF && count < fsize){
             numbers[count++] = num;
         }
         fclose(file);
