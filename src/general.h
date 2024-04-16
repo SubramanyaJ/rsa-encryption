@@ -1,39 +1,22 @@
-#include <string.h>
+#include <stdbool.h>
 
-void getInt(int *p, char name[]){
+void clear(){                                                           // Used to clear the input buffer
+    while ( getchar() != '\n' );
+}
+
+void getInteger(int *p, char name[]){                                   // Obtains an integer from the user
     printf("Enter the value of %s : ", name);
     scanf("%i", p);
 }
 
-bool getprimes(int *p, int *q){
-    int a, b;
-    getInt(&a, "p");
-    getInt(&b, "q");
-    if(primecheck(a) && primecheck(b)){
+bool getPrimes(int *p, int *q){                                         // Gets two numbers, and checks whether
+    int a, b;                                                           // these numbers are primes
+    getInteger(&a, "p");
+    getInteger(&b, "q");
+    if(primeCheck(a) && primeCheck(b)){
         *p = a;     *q = b;
+        clear();
         return true;
     }
     return false;
-}
-
-void clear(){
-    while ( getchar() != '\n' );
-}
-
-void filesize(int *maincount){
-    FILE *file;
-    int count = 0;
-    char ch;
-
-    file = fopen("message.txt", "r");
-    if (file == NULL){
-        printf("Unable to open file.\n");
-        return;
-    }
-    while ((ch = fgetc(file)) != EOF){
-        count++;
-    }
-    *maincount = count;
-    
-    fclose(file);
 }
